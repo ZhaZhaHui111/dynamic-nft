@@ -1,0 +1,13 @@
+[package]
+name = "dynamic-non-fungible-token"
+version = "1.0.0"
+authors = ["ZhaZhaHui <ZhaZhaHui>"]
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+near-sdk = "4.0.0"
+near-contract-standards = "4.0.0"
+serde = "1.0.118"
