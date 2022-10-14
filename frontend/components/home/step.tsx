@@ -61,11 +61,11 @@ export const Step = () => {
             Mint
           </p> */}
           <a
-            href="/Mint"
+            href="/mint"
             aria-label=""
             className="text-deep-purple-accent-400 text-6xl hover:text-deep-purple-800 inline-flex items-center font-semibold transition-colors duration-200"
           >
-            Mint
+            Mint (egg)
           </a>
           <div className="top-0 right-0 flex h-24 items-center justify-center lg:absolute lg:-mr-8">
             <svg
@@ -110,14 +110,14 @@ export const Step = () => {
           </div>
           <h6 className="mb-2 text-2xl font-extrabold">Step 2</h6>
           {/* <p className="mb-3 max-w-md text-sm text-gray-900 sm:mx-auto">
-update
+update 
           </p> */}
           <a
             href="/nft"
             aria-label=""
             className="text-deep-purple-accent-400 text-6xl hover:text-deep-purple-800 inline-flex items-center font-semibold transition-colors duration-200"
           >
-            update
+            update (chick)
           </a>
           <div className="top-0 right-0 flex h-24 items-center justify-center lg:absolute lg:-mr-8">
             <svg
@@ -169,7 +169,7 @@ stake
             aria-label=""
             className="text-deep-purple-accent-400 text-6xl hover:text-deep-purple-800 inline-flex items-center font-semibold transition-colors duration-200"
           >
-            stake
+            stake (rooster)
           </a>
         </div>
       </div>

@@ -14,7 +14,6 @@ pub struct PriceEntry {
     last_update: Timestamp, // Time or report
 }
 
-#[near_bindgen]
 impl Contract {
     pub fn get_entry(
         &mut self,
@@ -28,7 +27,9 @@ impl Contract {
             .get_entry(pair.clone(), provider)
             .then(Self::ext(env::current_account_id()).set_entry(pair, token_id, title, media))
     }
-
+}
+#[near_bindgen]
+impl Contract {
     #[private]
     pub fn set_entry(
         &mut self,
@@ -55,16 +56,18 @@ impl Contract {
             price[..1].to_string(),
             price[1..7].to_string()
         );
-        let issued_at = self.view_metadata(token_id.clone())
-            .issued_at
-            .unwrap();
+        let issued_at = self.view_metadata(token_id.clone()).issued_at.unwrap();
         let new_token_metadata = create_metadata(
             title,
             media.to_string(),
             issued_at,
             nano_to_sec(env::block_timestamp()).to_string(),
         );
-        self.tokens.token_metadata_by_id.as_mut().unwrap().insert(token_id,&new_token_metadata);
+        self.tokens
+            .token_metadata_by_id
+            .as_mut()
+            .unwrap()
+            .insert(token_id, &new_token_metadata);
         token_id.to_string()
     }
 }
