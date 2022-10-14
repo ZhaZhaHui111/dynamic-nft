@@ -19,7 +19,7 @@
     ```
 
     replace `YOUR-TESTNET-ACCOUNT`
-    with your testnet account in frontend/services/config.ts
+    with your testnet account in `frontend/services/config.ts`
 
 4.  Install the dependencies
     ```bash
