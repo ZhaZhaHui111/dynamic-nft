@@ -12,5 +12,4 @@ overflow-checks = true
 members = [
   "dnft",
   "./__test__",
-  "test-farm",
 ]

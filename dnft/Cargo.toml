@@ -11,3 +11,5 @@ crate-type = ["cdylib", "rlib"]
 near-sdk = "4.0.0"
 near-contract-standards = "4.0.0"
 serde = "1.0.118"
+strum = "0.24"
+strum_macros = "0.24"

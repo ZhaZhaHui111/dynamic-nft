@@ -1,25 +1,10 @@
-
-use near_sdk::serde::{Deserialize, Serialize};
-
 use crate::*;
-
-//base
+use near_sdk::serde::{Deserialize, Serialize};
+use utils::*;
 
 #[ext_contract(fpo)]
 trait FPO {
     fn get_entry(&self, pair: String, provider: AccountId) -> Promise;
-}
-
-#[ext_contract(ext_self)]
-trait RequestResolver {
-    fn set_entry(
-        &self,
-        pair: String,
-        provider: AccountId,
-        token_id: &TokenId,
-        title: String,
-        media: String,
-    ) -> Promise;
 }
 
 #[derive(BorshDeserialize, BorshSerialize, Serialize, Deserialize)]
@@ -36,28 +21,21 @@ impl Contract {
         pair: String,
         provider: AccountId,
         token_id: &TokenId,
-        title: String,
-        media: String,
+        title: &String,
+        media: &String,
     ) -> Promise {
         fpo::ext(self.oracle.clone())
-            .get_entry(
-                pair.clone(),
-                provider.clone(),
-                //env::prepaid_gas() - GAS_FOR_FT_TRANSFER_CALL
-            )
-            .then(ext_self::ext(env::current_account_id()).set_entry(
-                pair, provider, token_id,title,media 
-            ))
+            .get_entry(pair.clone(), provider)
+            .then(Self::ext(env::current_account_id()).set_entry(pair, token_id, title, media))
     }
 
     #[private]
     pub fn set_entry(
         &mut self,
         pair: String,
-        //provider: AccountId,
         token_id: &TokenId,
-        title: String,
-        media: String,
+        title: &String,
+        media: &String,
     ) -> TokenId {
         let entry = match env::promise_result(0) {
             PromiseResult::NotReady => unreachable!(),
@@ -69,8 +47,24 @@ impl Contract {
             }
             PromiseResult::Failed => panic!("ERR_FAILED_ENTRY_FETCH"),
         };
-        let title = format!("{} {} {}",title,pair,entry.price.0/entry.decimals as u128 );
-        self.set_metadata(token_id, title, media);
-        token_id.clone()
+        let price = &entry.price.0.to_string();
+        let title = format!(
+            "{} {} {}.{}",
+            title,
+            pair[..4].to_string(),
+            price[..1].to_string(),
+            price[1..7].to_string()
+        );
+        let issued_at = self.view_metadata(token_id.clone())
+            .issued_at
+            .unwrap();
+        let new_token_metadata = create_metadata(
+            title,
+            media.to_string(),
+            issued_at,
+            nano_to_sec(env::block_timestamp()).to_string(),
+        );
+        self.tokens.token_metadata_by_id.as_mut().unwrap().insert(token_id,&new_token_metadata);
+        token_id.to_string()
     }
 }

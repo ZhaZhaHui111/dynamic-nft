@@ -3,8 +3,8 @@ set -e
 
 RUSTFLAGS='-C link-arg=-s' cargo build --target wasm32-unknown-unknown --release
 
-if [ ! -d ./res ]; then
-    mkdir ./res
-fi
+# if [ ! -d ./res ]; then
+#     mkdir ./res
+# fi
 
-cp ./target/wasm32-unknown-unknown/release/dnft.wasm ./res
+# cp ../target/wasm32-unknown-unknown/release/dynamic-non-fungible-token.wasm ./res
