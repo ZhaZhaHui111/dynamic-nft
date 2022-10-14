@@ -33,3 +33,7 @@ yarn-error.log*
 *.wasm
 /__test__
 /test-farm
+
+# next.js
+.next/
+/out/

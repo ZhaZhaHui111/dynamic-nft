@@ -1,7 +1,9 @@
 sh scripts/build.sh
 
-accountId=${accountId:-dnft.YOUR-TESTNET-ACCOUNT}
-master=${master:-YOUR-TESTNET-ACCOUNT}
+# accountId=${accountId:-dnft.YOUR-TESTNET-ACCOUNT}
+# master=${master:-YOUR-TESTNET-ACCOUNT}
+ accountId=${accountId:-dnft.fluxt.testnet}
+ master=${master:-fluxt.testnet}
 
 # default params
 network=${network:-testnet}

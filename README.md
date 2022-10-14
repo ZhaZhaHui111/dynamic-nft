@@ -12,11 +12,14 @@
     ```bash
     sh scripts/run.sh
     ```
-3.  Change directory to frontend
+3.  Change directory to frontend,
 
     ```bash
     cd ./frontend
     ```
+
+    replace `YOUR-TESTNET-ACCOUNT`
+    with your testnet account in frontend/services/config.ts
 
 4.  Install the dependencies
     ```bash

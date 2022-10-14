@@ -1,4 +1,4 @@
-export const CONTRACT_NAME = "dnft.fluxt.testnet";
+export const CONTRACT_NAME = "dnft.YOUR-TESTNET-ACCOUNT";
 
 export default function getConfig(env: string) {
   switch (env) {
