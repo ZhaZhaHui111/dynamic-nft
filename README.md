@@ -5,8 +5,8 @@
 1. replace `YOUR-TESTNET-ACCOUNT`
    with your testnet account in `scripts/run.sh`
 
-- `accountId=${accountId:-dnft.`YOUR-TESTNET-ACCOUNT`}`
-- ` master=${master:-`YOUR-TESTNET-ACCOUNT` }`
+- accountId=${accountId:-dnft.`YOUR-TESTNET-ACCOUNT`}
+- master=${master:-`YOUR-TESTNET-ACCOUNT` }
 
 2.  Build, deploy, initialize the contract
     ```bash
