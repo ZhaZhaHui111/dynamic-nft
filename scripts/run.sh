@@ -36,10 +36,9 @@ near call $accountId new_default_meta "{\"owner_id\": \"$accountId\"}" --account
 near call $accountId storage_deposit "{\"account_id\": \"$master\"}" --accountId $master --amount 0.1 --gas=300000000000000
 
 # perform first data request
-#near call $accountId get_entry "{\"pair\": \"$pair\", \"provider\": \"$provider\"}" --accountId $accountId --gas=300000000000000
-near call $accountId nft_mint "{\"token_id\": \"0\", \"receiver_id\": \"$master\"}" --accountId $accountId --amount 0.0125 --gas=300000000000000
-near call $accountId nft_mint "{\"token_id\": \"1\", \"receiver_id\": \"$master\"}" --accountId $accountId --amount 0.0125 --gas=300000000000000
-near call $accountId nft_mint "{\"token_id\": \"2\", \"receiver_id\": \"$master\"}" --accountId $accountId --amount 0.0125 --gas=300000000000000
-near call $accountId nft_mint "{\"token_id\": \"3\", \"receiver_id\": \"$master\"}" --accountId $accountId --amount 0.0125 --gas=300000000000000
+near call $accountId nft_mint "{ \"receiver_id\": \"$master\"}" --accountId $accountId --amount 0.0125 --gas=300000000000000
+near call $accountId nft_mint "{ \"receiver_id\": \"$master\"}" --accountId $accountId --amount 0.0125 --gas=300000000000000
+near call $accountId nft_mint "{ \"receiver_id\": \"$master\"}" --accountId $accountId --amount 0.0125 --gas=300000000000000
+near call $accountId nft_mint "{ \"receiver_id\": \"$master\"}" --accountId $accountId --amount 0.0125 --gas=300000000000000
 
 #near call $accountId update_check "{\"token_id\": \"0\"}" --accountId $accountId --gas=300000000000000
