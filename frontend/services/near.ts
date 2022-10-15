@@ -1,5 +1,5 @@
 import { Near, keyStores, WalletConnection } from "near-api-js";
-import getConfig from "./config";
+import getConfig, { CONTRACT_NAME } from "./config";
 import BN from "bn.js";
 import { GAS_FEE } from "../constants/gasFee";
 import {
@@ -24,15 +24,6 @@ interface IFunctionCall extends IViewFunction {
   amount?: string;
 }
 
-export const CONTRACT = {
-  TOKEN: "toke_b.ttnear.testnet",
-  FARM: 'dev-1651898392195-54275589265673',
-  WRAP: "wrap.testnet",
-  REF_TOKEN: "ref.fakes.testnet",
-  REF: "ref-finance-101.testnet",
-  MFT_ID: ":475",
-  NFT: "nft_tenk.ttnear.testnet",
-};
 
 export const getAmount = (amount: string | null | undefined) =>
   amount ? new BN(amount) : new BN("0");
@@ -56,7 +47,7 @@ class NearClass {
   }
 
   public signIn() {
-    this.wallet.requestSignIn({contractId:CONTRACT.FARM});
+    this.wallet.requestSignIn({contractId:CONTRACT_NAME});
   }
 
   public signOut() {

@@ -1,4 +1,3 @@
-
 import LoginModal from "../components/Modal/LoginModal";
 import React, { createContext, useContext, useEffect, useState } from "react";
 import near from "../services/near";
@@ -34,8 +33,8 @@ export const NearProvider = (props: { children: React.ReactNode }) => {
     near.init(() => {
       setIsInit(true);
       setAccountId(near.wallet.getAccountId());
-    });  }, []);
-
+    });
+  }, []);
 
   const value: INearContext = {
     isInit,

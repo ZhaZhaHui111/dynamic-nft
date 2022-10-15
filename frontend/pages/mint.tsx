@@ -68,8 +68,7 @@ const UserNFTModal = (props: ModalCommonProps) => {
     <>
       <div className="m-auto w-full max-w-sm rounded-lg bg-parasGrey p-4 shadow-xl md:max-w-5xl">
         <div className="-mx-4 flex justify-between">
-          <div className="w-2/3 px-5">
-          </div>
+          <div className="w-2/3 px-5"></div>
         </div>
 
         <div className="no-scrollbar mt-4 h-[50vh] overflow-y-scroll md:h-[60vh]">

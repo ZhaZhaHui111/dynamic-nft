@@ -1,9 +1,8 @@
-
 import ProfileModal from "../Modal/ProfileModal";
 import { useNearProvider } from "../../hooks/useNearProvider";
-import { MouseEventHandler, useEffect, useRef, useState } from "react";
-import near, { CONTRACT } from "../../services/near";
-import { parseImgUrl, prettyBalance, prettyTruncate } from "../../utils/common";
+import { useState } from "react";
+import near from "../../services/near";
+import { prettyTruncate } from "../../utils/common";
 import Button from "./Button";
 import Link from "next/link";
 import React from "react";
@@ -41,7 +40,6 @@ function Anchor({
   );
 }
 
-
 const Header = () => {
   const { accountId } = useNearProvider();
   const [showProfileModal, setShowProfileModal] = useState(false);
@@ -62,7 +60,6 @@ const Header = () => {
       </div>
     );
   };
-
 
   return (
     <>
